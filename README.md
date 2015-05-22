@@ -15,7 +15,7 @@ I had some quick, easy to reach goals:
 ## Development
 In a terminal run:
 
-1. `$ git clone git@git.innovate.ibm.com:dan-zaharia/iconlibrary.git` to download the repository
+1. `$ git clone git@git.design.ibm.com:danzaharia/iconlibrary.git` to download the repository
 2. `$ cd iconlibrary` change into the new project directory
 3. `$ npm install` download and install the dependencies the app needs to run
 4. `$ node app.js` start the node server
