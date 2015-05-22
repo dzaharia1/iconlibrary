@@ -19,5 +19,5 @@ In a terminal run:
 2. `$ cd iconlibrary` change into the new project directory
 3. `$ npm install` download and install the dependencies the app needs to run
 4. `$ node app.js` start the node server
-4. `$ gulp` run the gulp tasks, including a persistent [browser-sync](http://www.browsersync.io/) proxy to the server
+4. Then, in a separate terminal window, `$ gulp` to run the gulp tasks, including a persistent [browser-sync](http://www.browsersync.io/) proxy to the server
 5. In a browser, open [http://localhost:3000](http://localhost:3000)
