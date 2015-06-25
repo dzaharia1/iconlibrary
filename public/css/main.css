@@ -38,7 +38,7 @@ main, .download-link-section, .view-controller {
       -ms-flex-align: start;
           align-items: flex-start; }
 
-.download-link, .filter-box, .zoom-box {
+footer, .download-link, .filter-box, .zoom-box {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -64,6 +64,13 @@ h1, p, a, aside, label {
   text-decoration: none;
   color: #323232; }
 
+footer {
+  width: 100%;
+  padding-top: 2rem;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
 h1 {
   color: #323232;
   font-size: 1.3rem; }
@@ -84,6 +91,9 @@ main {
   width: 90%;
   padding-bottom: 3rem;
   max-width: 800px; }
+
+.hidden {
+  display: none; }
 
 .download-link-section {
   width: 100%;
@@ -135,19 +145,20 @@ main {
       -webkit-align-items: center;
           -ms-flex-align: center;
               align-items: center; } }
-  .view-controller .sticky-heading {
-    display: none; }
-    @media screen and (min-width: 750px) {
-      .view-controller .sticky-heading {
-        display: none; } }
+  @media screen and (max-width: 750px) {
+    .view-controller .sticky-heading {
+      display: none; } }
+  .view-controller-fixed {
+    position: fixed;
+    top: 0;
+    width: 90%;
+    padding: 16px 0;
+    border-bottom: 1px #ddd solid; }
 
 .flex-spacer {
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1; }
-
-.view-controller-understudy {
-  display: none; }
 
 .filter-box {
   width: 100%;
@@ -231,7 +242,7 @@ main {
   padding: 1rem .75rem; }
 
 .icon-item-sample {
-  width: 5rem;
+  width: 64px;
   margin-bottom: .5rem; }
 
 .icon-title {

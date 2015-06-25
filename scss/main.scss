@@ -80,6 +80,13 @@ h1, p, a, aside, label{
 	color: $gray-type;
 }
 
+footer {
+	@extend %horizontalFlexCenter;
+	width: 100%;
+	padding-top: 2rem;
+	justify-content: space-between;
+}
+
 h1{
 	@extend %helveticaBold;
 	color: $gray-type;
@@ -114,6 +121,10 @@ main{
 	width: 90%;
 	padding-bottom: 3rem;
 	max-width: 800px;
+}
+
+.hidden {
+	display: none;
 }
 
 .download-link-section{
@@ -162,6 +173,7 @@ main{
 	@extend %verticalFlexStart;
 	width: 100%;
 	margin-bottom: 1.5rem;
+	// margin: 0 0 1.5rem 0;
 	background-color: white;
 	max-width: 800px;
 	@media screen and (min-width: 600px){
@@ -169,19 +181,22 @@ main{
 		align-items: center;
 	}
 	.sticky-heading{
-		display: none;
-		@media screen and (min-width: 750px){
+		// display: none;
+		@media screen and (max-width: 750px){
 			display: none;
 		}
+	}
+	&-fixed {
+		position: fixed;
+		top: 0;
+		width: 90%;
+		padding: 16px 0;
+		border-bottom: 1px #ddd solid;
 	}
 }
 
 .flex-spacer{
 	flex: 1;
-}
-
-.view-controller-understudy{
-	display: none;
 }
 
 .filter-box{
@@ -274,7 +289,7 @@ main{
 }
 
 .icon-item-sample{
-	width: 5rem;
+	width: 64px;
 	margin-bottom: .5rem;
 }
 
