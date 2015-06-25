@@ -1,83 +1,109 @@
-var iconList = [];
 var initialSize;
-var filterTop;
-var widestIcon = 0;
+var filterTop, filterHeight;
+var fileTypeLists, viewControllerPlaceholder, filterBox, expandButtons 
+, zoomRange, iconSamples, zoomLabel, filterBar, iconItems, iconList;
 
-$(document).ready(function() {
-	$('.icon-item').each(function() {
-		iconList.push($(this));
-	});
-	$('.icon-download-list').hide();
-	initialSize = $('.icon-item-sample').width();
-	filterTop = $('.view-controller').offset().top;
-	$('.view-controller-understudy').height($('.view-controller').height());
-	$('.view-controller-understudy').css('margin-bottom', $('.view-controller').css('margin-bottom'));
-	normalizeWidths();
-
-	$('.search-box').on('input', function(e) {
-		e.preventDefault();
-		queryIcons($(this).val());
-	});
-
-	$('.icon-item-expand').click(function(e) {
-		e.preventDefault();
-		$(this).parent().children('.icon-download-list').slideToggle();
-		$(this).parent().children('.icon-download-link').fadeToggle(300);
-
-	});
-
-	$('.zoom-range').on('input', function() {
-		var calculatedSize = initialSize * ($(this).val() / 100);
-		$('.icon-item-sample').width(calculatedSize);
-		$('.zoom-label').html(calculatedSize.toFixed(0) + ' px');
-	});
-
-	$(window).scroll(function() {
-		if ($(window).scrollTop() >= filterTop - 16) {
-			$('.view-controller').css('position', 'fixed');
-			$('.view-controller').css('top', '0');
-			$('.view-controller').css('width', '90%');
-			$('.view-controller').css('padding', '16px 0');
-			$('.view-controller').css('border-bottom', '1px #ddd solid');
-			$('.view-controller-understudy').css('display', 'block');
-			if ($(window).width() > 750){
-				$('.sticky-heading').fadeIn(300);
-			}
-		}
-		else {
-			$('.view-controller').css('position', 'relative');
-			$('.view-controller').css('width', '100%');
-			$('.view-controller').css('padding', '0');
-			$('.view-controller').css('border-bottom', 'none');
-			$('.view-controller-understudy').css('display', 'none');
-			$('.sticky-heading').fadeOut(300);
+var normalizeWidths = function() {
+	var widestIcon = 0;
+	var iconTitles = document.querySelectorAll('.icon-title');
+	Array.prototype.forEach.call(iconTitles, function(element) {
+		if (element.offsetWidth > widestIcon) {
+			widestIcon = element.offsetWidth;
 		}
 	});
-
-	$(window).resize(function(){
-		if ($(window).width() < 750){
-			$('.sticky-heading').css('display', 'none');
-		}
-		filterTop = $('.view-controller').offset().top;
+	Array.prototype.forEach.call(iconTitles, function(element) {
+		element.style.width = widestIcon + 'px';
 	});
-});
+};
 
-function normalizeWidths() {
-	$('.icon-title').each(function(){
-		if ($(this).width() > widestIcon){
-			widestIcon = $(this).width();
-		}
-	});
-	$('.icon-title').width(widestIcon);
-}
-
-function queryIcons(searchString) {
-	var i = 0;
-	$('.icon-item').detach();
-	for (i = 0; i < iconList.length; i ++) {
-		var queryIndex = iconList[i].data('tags').indexOf(searchString);
-		if (queryIndex > -1){
-			iconList[i].appendTo($('.icon-list'));
+var queryIcons = function() {
+	iconList.innerHTML = '';
+	var i;
+	for (i = 0; i < iconItems.length; i ++) {
+		var queryTest = iconItems[i].getAttribute('data-tags').indexOf(filterBox.value);
+		if (queryTest > -1) {
+			iconList.appendChild(iconItems[i]);
 		}
 	}
+}
+
+var toggleElement = function(element, explicitState) {
+	console.log('go implement toggleElement()!')
+	if (element.classList.contains('hidden')) {
+		element.classList.remove('hidden');
+	}
+	else {
+		element.classList.add('hidden');
+	}
+}
+
+var setIconSizes = function(size) {
+	Array.prototype.forEach.call(iconSamples, function(icon) {
+		icon.style.width = size.toFixed(0) + 'px';
+	});
+}
+
+var getFilterHeight = function(filterBar) {
+	var height = filterBar.offsetHeight;
+	var margin = filterBar.style.marginBottom || 24;
+	filterHeight = height + margin;
+}
+
+var readyFunction = function() {
+	fileTypeLists = document.querySelectorAll('.icon-download-list');
+	viewControllerPlaceholder = document.querySelector('.view-controller-understudy');
+	filterBox = document.querySelector('.search-box');
+	expandButtons = document.querySelectorAll('.icon-item-expand');
+	zoomRange = document.querySelector('.zoom-range');
+	iconSamples = document.querySelectorAll('.icon-item-sample');
+	zoomLabel = document.querySelector('.zoom-label');
+	iconList = document.querySelector('.icon-list');
+	filterBar = document.querySelector('.view-controller');
+	iconItems = document.querySelectorAll('.icon-item');
+	initialSize = document.querySelector('.icon-item-sample').width;
+	filterTop = document.querySelector('.view-controller').offsetTop;
+	getFilterHeight(filterBar);
+	normalizeWidths();
+
+	filterBox.addEventListener('input', function(event) {
+		event.preventDefault();
+		queryIcons()
+	});
+
+	Array.prototype.forEach.call(expandButtons, function(element) {
+		element.addEventListener('click', function(event) {
+			event.preventDefault();
+			var downloadList = element.parentNode.querySelector('.icon-download-list');
+			toggleElement(downloadList);
+		});
+	});
+
+	zoomRange.addEventListener('input', function(event) {
+		event.preventDefault();
+		setIconSizes(parseInt(zoomRange.value));
+		zoomLabel.innerText = zoomRange.value + ' px';
+	});
+
+	window.addEventListener('scroll', function() {
+		if (window.scrollY >= filterTop - 16) {
+			filterBar.classList.add('view-controller-fixed');
+			iconList.style.marginTop = filterHeight + 'px';
+			if (window.outerWidth > 750) {
+				document.querySelector('.sticky-heading').classList.remove('hidden');
+			}
+		}
+		else{
+			filterBar.classList.remove('view-controller-fixed');
+			iconList.style.marginTop = 0 + 'px';
+			document.querySelector('.sticky-heading').classList.add('hidden');
+		}
+	});
+
+};
+
+if (document.readyState != 'loading') {
+	readyFunction();
+}
+else {
+	document.addEventListener('DOMContentLoaded', readyFunction)
 }
