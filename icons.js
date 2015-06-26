@@ -6,7 +6,8 @@ var icons = [
 "add",
 "plus",
 "new",
-"create"
+"create",
+"glyph"
 ],
 "svg": "images/icon-library/svg/add-new.svg",
 "png": "images/icon-library/png/add-new.png",
@@ -133,7 +134,8 @@ var icons = [
 "tags": [
 "icon",
 "edit",
-"pencil"
+"pencil",
+"glyph"
 ],
 "svg": "images/icon-library/svg/edit.svg",
 "png": "images/icon-library/png/edit.png",
@@ -234,7 +236,8 @@ var icons = [
 "next",
 "right",
 "forward",
-"circle"
+"circle",
+"glyph"
 ],
 "svg": "images/icon-library/svg/next-right-forward.svg",
 "png": "images/icon-library/png/next-right-forward.png",
@@ -311,7 +314,8 @@ var icons = [
 "remove",
 "delete",
 "circle",
-"one-way"
+"one-way",
+"glyph"
 ],
 "svg": "images/icon-library/svg/remove-delete.svg",
 "png": "images/icon-library/png/remove-delete.png",
@@ -389,7 +393,8 @@ var icons = [
 "icon",
 "search",
 "find",
-"magnifying glass"
+"magnifying glass",
+"glyph"
 ],
 "svg": "images/icon-library/svg/search.svg",
 "png": "images/icon-library/png/search.png",
@@ -402,7 +407,8 @@ var icons = [
 "icon",
 "settings",
 "manage",
-"cogwheel"
+"cogwheel",
+"glyph"
 ],
 "svg": "images/icon-library/svg/settings-manage.svg",
 "png": "images/icon-library/png/settings-manage.png",
@@ -554,7 +560,8 @@ var icons = [
 "icon",
 "attachment",
 "attach",
-"paperclip"
+"paperclip",
+"glyph"
 ],
 "svg": "images/icon-library/svg/attachment.svg",
 "png": "images/icon-library/png/attachment.png",
@@ -604,7 +611,8 @@ var icons = [
 "icon",
 "cut",
 "remove",
-"scissors"
+"scissors",
+"glyph"
 ],
 "svg": "images/icon-library/svg/cut.svg",
 "png": "images/icon-library/png/cut.png",
@@ -670,7 +678,8 @@ var icons = [
 "link",
 "external",
 "url",
-"chain"
+"chain",
+"glyph"
 ],
 "svg": "images/icon-library/svg/link-externallink.svg",
 "png": "images/icon-library/png/link-externallink.png",
@@ -720,7 +729,8 @@ var icons = [
 "icon",
 "print",
 "paper",
-"printer"
+"printer",
+"glyph"
 ],
 "svg": "images/icon-library/svg/print.svg",
 "png": "images/icon-library/png/print.png",
@@ -732,7 +742,8 @@ var icons = [
 "tags": [
 "icon",
 "save",
-"disk"
+"disk",
+"glyph"
 ],
 "svg": "images/icon-library/svg/save.svg",
 "png": "images/icon-library/png/save.png",
@@ -870,7 +881,8 @@ var icons = [
 "icon",
 "audio",
 "sound",
-"speaker"
+"speaker",
+"glyph"
 ],
 "svg": "images/icon-library/svg/audio-sound.svg",
 "png": "images/icon-library/png/audio-sound.png",
@@ -944,7 +956,8 @@ var icons = [
 "icon",
 "bookmark",
 "reading",
-"favorite"
+"favorite",
+"glyph"
 ],
 "svg": "images/icon-library/svg/bookmark.svg",
 "png": "images/icon-library/png/bookmark.png",
@@ -1005,7 +1018,8 @@ var icons = [
 "icon",
 "chat",
 "IM",
-"talk"
+"talk",
+"glyph"
 ],
 "svg": "images/icon-library/svg/chat-im.svg",
 "png": "images/icon-library/png/chat-im.png",
@@ -1158,7 +1172,8 @@ var icons = [
 "document",
 "doc",
 "file",
-"content"
+"content",
+"glyph"
 ],
 "svg": "images/icon-library/svg/document.svg",
 "png": "images/icon-library/png/document.png",
@@ -1171,7 +1186,8 @@ var icons = [
 "icon",
 "email",
 "envelope",
-"open"
+"open",
+"glyph"
 ],
 "svg": "images/icon-library/svg/email.svg",
 "png": "images/icon-library/png/email.png",
@@ -1195,7 +1211,8 @@ var icons = [
 "tags": [
 "icon",
 "file",
-"content"
+"content",
+"glyph"
 ],
 "svg": "images/icon-library/svg/file.svg",
 "png": "images/icon-library/png/file.png",
@@ -1231,7 +1248,8 @@ var icons = [
 "tags": [
 "icon",
 "folder",
-"storage"
+"storage",
+"glyph"
 ],
 "svg": "images/icon-library/svg/folder.svg",
 "png": "images/icon-library/png/folder.png",
@@ -1301,7 +1319,8 @@ var icons = [
 "tags": [
 "icon",
 "help",
-"lifesaver"
+"lifesaver",
+"glyph"
 ],
 "svg": "images/icon-library/svg/help.svg",
 "png": "images/icon-library/png/help.png",
@@ -1313,7 +1332,8 @@ var icons = [
 "tags": [
 "icon",
 "home",
-"birdhouse"
+"birdhouse",
+"glyph"
 ],
 "svg": "images/icon-library/svg/home.svg",
 "png": "images/icon-library/png/home.png",
@@ -1359,7 +1379,8 @@ var icons = [
 "tags": [
 "icon",
 "like",
-"heart"
+"heart",
+"glyph"
 ],
 "svg": "images/icon-library/svg/like-heart.svg",
 "png": "images/icon-library/png/like-heart.png",
@@ -1372,7 +1393,8 @@ var icons = [
 "icon",
 "location",
 "map",
-"pin"
+"pin",
+"glyph"
 ],
 "svg": "images/icon-library/svg/location-map.svg",
 "png": "images/icon-library/png/location-map.png",
@@ -1386,7 +1408,8 @@ var icons = [
 "lock",
 "locked",
 "secure",
-"security"
+"security",
+"glyph"
 ],
 "svg": "images/icon-library/svg/lock-secure.svg",
 "png": "images/icon-library/png/lock-secure.png",
@@ -1497,7 +1520,8 @@ var icons = [
 "icon",
 "phone",
 "call",
-"telephone"
+"telephone",
+"glyph"
 ],
 "svg": "images/icon-library/svg/phone-call.svg",
 "png": "images/icon-library/png/phone-call.png",
@@ -1561,7 +1585,8 @@ var icons = [
 "tags": [
 "icon",
 "rating",
-"star"
+"star",
+"glyph"
 ],
 "svg": "images/icon-library/svg/rating-star.svg",
 "png": "images/icon-library/png/rating-star.png",
@@ -1765,7 +1790,8 @@ var icons = [
 "unlock",
 "access",
 "not secured",
-"security"
+"security",
+"glyph"
 ],
 "svg": "images/icon-library/svg/unlock-nonsecure.svg",
 "png": "images/icon-library/png/unlock-nonsecure.png",
@@ -1779,7 +1805,8 @@ var icons = [
 "user",
 "profile",
 "user profile",
-"person"
+"person",
+"glyph"
 ],
 "svg": "images/icon-library/svg/user-profile.svg",
 "png": "images/icon-library/png/user-profile.png",
@@ -1792,7 +1819,8 @@ var icons = [
 "icon",
 "video",
 "play",
-"visual"
+"visual",
+"glyph"
 ],
 "svg": "images/icon-library/svg/video.svg",
 "png": "images/icon-library/png/video.png",
