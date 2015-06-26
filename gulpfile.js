@@ -25,7 +25,7 @@ var SOURCE = {
 	css: 'public/css',
 	dust: 'views/*.dust',
 	js: ['/*.js', 'routes/**/*.js', 'public/js/*.js'],
-	images: 'all-icons/*'
+	images: 'public/images/icon-library/svg/*'
 };
 
 gulp.task('browser-sync', function(){
