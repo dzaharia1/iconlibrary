@@ -9,7 +9,7 @@ I had some quick, easy to reach goals:
 ## Tech stack
 * Task runner is [gulp.js](http://gulpjs.com/)
 * Server is [Express.js](http://expressjs.com/)
-* View templates are compiled server-side using [Dust.js](https://linkedin.github.io/dustjs/)
+* View templates are compiled server-side using [handlebars.js](https://github.com/wycats/handlebars.js/)
 * Static assets are in /public
 
 ## Development
