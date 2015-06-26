@@ -23,7 +23,7 @@ var AUTOPREFIXER_BROWSERS = [
 var SOURCE = {
 	scss: 'scss/**/*.scss',
 	css: 'public/css',
-	dust: 'views/*.dust',
+	hbs: 'views/*.hbs',
 	js: ['/*.js', 'routes/**/*.js', 'public/js/*.js'],
 	images: 'public/images/icon-library/svg/*'
 };
@@ -60,7 +60,7 @@ gulp.task('sass', ['scss-lint'], function () {
 
 gulp.task('default', ['sass', 'browser-sync'], function(){
 	gulp.watch(SOURCE.scss, ['sass']);
-	gulp.watch([SOURCE.dust, SOURCE.js], ['bs-reload']);
+	gulp.watch([SOURCE.hbs, SOURCE.js], ['bs-reload']);
 });
 
 gulp.task('optimizer', function(){

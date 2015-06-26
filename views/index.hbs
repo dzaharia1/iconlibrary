@@ -1,0 +1,50 @@
+<section class="download-link-section">
+	<a href="/IBMIcons-v1.zip" class="download-link">
+		<img src="/images/icon-library/svg/download-import.svg" alt="">
+		Download the full icon library package
+	</a>
+	<a href="/icondata" class="download-link">
+		<img src="/images/icon-library/svg/code.svg" alt="">
+		Download the library JSON
+	</a>
+</section>
+<section class="icons-section">
+	<form action="" class="view-controller">
+		<div class="filter-box">
+			<input type="text" class="search-box" placeholder="Find an icon">
+			<img src="images/icon-library/svg/search.svg" alt="" class="search-affordance">
+		</div>
+		<div class="zoom-box">
+			<label for="" class="zoom-label">64 px</label>
+			<input type="range" class="zoom-range" min="20" max="200" value="64">
+		</div>
+		<div class="flex-spacer"></div>
+		<h1 class="title-heading sticky-heading hidden">
+			<span>IBM</span> Design
+		</h1>
+	</form>
+	<ul class="icon-list">
+		{{#each icons}}
+		<li class="icon-item" data-tags="{{tags}}">
+			<a href="#" class="icon-item-expand">
+				<img src="{{svg}}" alt="" class="icon-item-sample">
+				{{#if glyph}}
+				<img src="{{glyph}}" alt="" class="icon-item-sample glyph hidden">
+				{{/if}}
+			</a>
+			<p class="icon-title">{{title}}</p>
+			<ul class="icon-download-list hidden">
+				<li>
+					<a href="{{svg}}" class="icon-download-link">SVG</a>
+				</li>
+				<li>
+					<a href="{{urlPrefix}}{{png}}" class="icon-download-link">PNG</a>
+				</li>
+				{{!-- <li>
+					<a href="{{urlPrefix}}{{zip}}" class="icon-download-link">Package</a>
+				</li> --}}
+			</ul>
+		</li>
+		{{~/each}}
+	</ul>
+</section>

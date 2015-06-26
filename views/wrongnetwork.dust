@@ -1,7 +1,0 @@
-{>layout/}
-{+content}
-<div class="error-page-wrapper">
-	<h1>Error:</h1>
-	<p>you need to be on the IBM network to view this page</p>
-</div>
-{/content}
