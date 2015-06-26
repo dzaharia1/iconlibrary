@@ -22,7 +22,9 @@
 				<li class="icon-item" data-tags="{tags}">
 					<a href="#" class="icon-item-expand">
 						<img class="icon-item-sample" src="{svg}" alt="">
-						{! <img src="{glyphsvg}" alt="" class="icon-item-glyph-sample"> !}
+						{?glyph}
+							<img src="{glyph}" alt="" class="icon-item-glyph-sample hidden">
+						{/glyph}
 					</a>
 					<p class="icon-title">{title}</p>
 					<ul class="icon-download-list hidden">
