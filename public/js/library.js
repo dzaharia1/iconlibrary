@@ -25,7 +25,7 @@ var queryIcons = function() {
 			iconList.appendChild(iconItems[i]);
 		}
 	}
-}
+};
 
 var toggleElement = function(element, explicitState) {
 	console.log('go implement toggleElement()!')
@@ -35,19 +35,19 @@ var toggleElement = function(element, explicitState) {
 	else {
 		element.classList.add('hidden');
 	}
-}
+};
 
 var setIconSizes = function(size) {
 	Array.prototype.forEach.call(iconSamples, function(icon) {
 		icon.style.width = size.toFixed(0) + 'px';
 	});
-}
+};
 
 var getFilterHeight = function(filterBar) {
 	var height = filterBar.offsetHeight;
 	var margin = filterBar.style.marginBottom || 24;
 	filterHeight = height + margin;
-}
+};
 
 var readyFunction = function() {
 	fileTypeLists = document.querySelectorAll('.icon-download-list');
