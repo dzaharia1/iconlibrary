@@ -219,12 +219,14 @@ main {
     cursor: pointer; }
   .zoom-range::-moz-range-track {
     background: none;
-    border: none; }
+    border: none;
+    height: .3rem; }
   .zoom-range::-moz-range-thumb {
-    width: 1rem;
-    height: 1rem;
+    width: .75rem;
+    height: .75rem;
     border-radius: 1rem;
     cursor: pointer;
+    background: none;
     background-color: white;
     border: 3px #323232 solid; }
 
