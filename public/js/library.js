@@ -38,9 +38,22 @@ var toggleElement = function(element, explicitState) {
 };
 
 var setIconSizes = function(size) {
-	Array.prototype.forEach.call(iconSamples, function(icon) {
+	for (var i = 0; i < iconSamples.length; i ++) {
+		var tile = iconSamples[i].parentNode.parentNode;
+		var glyph = tile.querySelector('.glyph');
+		var icon = iconSamples[i];
 		icon.style.width = size.toFixed(0) + 'px';
-	});
+		if (size <= 24 && glyph) {
+			icon.classList.add('hidden');
+			glyph.classList.remove('hidden');
+			tile.querySelector('.icon-download-link').href = glyph.src;
+		}
+		else if (size > 24 && glyph){
+			icon.classList.remove('hidden');
+			glyph.classList.add('hidden');
+			tile.querySelector('.icon-download-link').href = tile.querySelector('.icon-item-sample').src;
+		}
+	};
 };
 
 var getFilterHeight = function(filterBar) {
