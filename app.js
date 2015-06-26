@@ -27,16 +27,6 @@ app.get('/', function(req, res, next){
 	res.render('index', {layout: 'layout', urlPrefix: urlPrefix, icons: icons});
 });
 
-// app.get('/corrected', function(req, res) {
-// 	var thisString, index;
-// 	for (var i = 0; i < icons.length; i ++) {
-// 		thisString = icons[i].svg;
-// 		index = thisString.indexOf('.');
-// 		icons[i].glyph = thisString.substring(0, index) + '_24.svg';
-// 	}
-// 	res.json(icons);
-// });
-
 app.get('/icondata', function(req, res, next){
 	res.json(icons);
 });
