@@ -23,7 +23,7 @@
 					<a href="#" class="icon-item-expand">
 						<img class="icon-item-sample" src="{svg}" alt="">
 						{?glyph}
-							<img src="{glyph}" alt="" class="icon-item-glyph-sample hidden">
+							<img src="{glyph}" alt="" class="icon-item-sample glyph hidden">
 						{/glyph}
 					</a>
 					<p class="icon-title">{title}</p>
