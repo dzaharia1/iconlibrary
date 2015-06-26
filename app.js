@@ -1,23 +1,18 @@
 var express = require('express') ,
 handlebars = require('express-handlebars') ,
-// dust = require('dustjs-linkedin') ,
 path = require('path') ,
-// consolidate = require('consolidate') ,
 request = require('request') ,
-https = require('https');
-
-var icons = require('./icons.js');
+https = require('https') ,
+icons = require('./icons.js');
 
 var app = express();
-var router = express.Router();
 
-var localhost = 'http://localhost',
-localport = '3333';
+var router = express.Router();
+var localhost = 'http://localhost';
+var localport = '3333';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-// app.engine('dust', consolidate.dust);
-// app.set('view engine', 'dust');
 app.set('views', path.join(__dirname, 'views'));
 app.engine('hbs', handlebars({extname: 'hbs', defaultLayout:'layout.hbs'}))
 app.set('view engine', 'hbs');
