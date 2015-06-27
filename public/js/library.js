@@ -1,7 +1,7 @@
 var initialSize;
 var filterTop, filterHeight;
 var fileTypeLists, viewControllerPlaceholder, filterBox, expandButtons 
-, zoomRange, iconSamples, zoomLabel, filterBar, iconItems, iconList;
+, zoomRange, iconSamples, zoomLabel, filterBar, iconItems, iconList, stickyTitle;
 
 var normalizeWidths = function() {
 	var widestIcon = 0;
@@ -27,14 +27,26 @@ var queryIcons = function() {
 	}
 };
 
-var toggleElement = function(element, explicitState) {
-	console.log('go implement toggleElement()!')
-	if (element.classList.contains('hidden')) {
-		element.classList.remove('hidden');
+var toggleClass = function(element, className, explicit) {
+	if (explicit === true) {
+		element.classList.add(className);
+		return;
+	}
+	else if (explicit === false) {
+		element.classList.remove(className);
+		return;
+	}
+
+	if (element.classList.contains(className)) {
+		element.classList.remove(className);
 	}
 	else {
-		element.classList.add('hidden');
+		element.classList.add(className);
 	}
+}
+
+var setProperty = function(element, property, value) {
+	element.style[property] = value;
 };
 
 var setIconSizes = function(size) {
@@ -75,6 +87,7 @@ var readyFunction = function() {
 	iconItems = document.querySelectorAll('.icon-item');
 	initialSize = document.querySelector('.icon-item-sample').width;
 	filterTop = document.querySelector('.view-controller').offsetTop;
+	stickyTitle = document.querySelector('.sticky-heading');
 	getFilterHeight(filterBar);
 	normalizeWidths();
 
@@ -83,11 +96,16 @@ var readyFunction = function() {
 		queryIcons()
 	});
 
-	Array.prototype.forEach.call(expandButtons, function(element) {
-		element.addEventListener('click', function(event) {
+	Array.prototype.forEach.call(expandButtons, function(thisButton) {
+		thisButton.addEventListener('click', function(event) {
 			event.preventDefault();
-			var downloadList = element.parentNode.querySelector('.icon-download-list');
-			toggleElement(downloadList);
+			var activeClassName = 'icon-download-list--visible';
+			var currentlyExpandedList = document.querySelector('.icon-download-list--visible');
+			var thisDownloadList = thisButton.parentNode.querySelector('.icon-download-list');
+			if (currentlyExpandedList && currentlyExpandedList !== thisDownloadList) {
+				toggleClass(currentlyExpandedList, activeClassName, false);
+			}
+			toggleClass(thisDownloadList, activeClassName);
 		});
 	});
 
@@ -98,20 +116,17 @@ var readyFunction = function() {
 	});
 
 	window.addEventListener('scroll', function() {
-		if (window.scrollY >= filterTop - 16) {
-			filterBar.classList.add('view-controller-fixed');
+		if (window.scrollY >= filterTop) {
+			toggleClass(filterBar, 'view-controller-fixed', true);
 			iconList.style.marginTop = filterHeight + 'px';
-			if (window.outerWidth > 750) {
-				document.querySelector('.sticky-heading').classList.remove('hidden');
-			}
+			toggleClass(stickyTitle, 'sticky-heading--visible', true);
 		}
 		else{
-			filterBar.classList.remove('view-controller-fixed');
+			toggleClass(filterBar, 'view-controller-fixed', false);
 			iconList.style.marginTop = 0 + 'px';
-			document.querySelector('.sticky-heading').classList.add('hidden');
+			toggleClass(stickyTitle, 'sticky-heading--visible', false);
 		}
 	});
-
 };
 
 if (document.readyState != 'loading') {

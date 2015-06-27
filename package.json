@@ -9,10 +9,12 @@
   "author": "Dan Zaharia",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.12.3",
-    "dustjs-linkedin": "^2.6.2",
-    "path": "^0.11.14",
     "consolidate": "^0.12.1",
+    "dustjs-linkedin": "^2.6.2",
+    "express": "^4.12.3",
+    "express-handlebars": "^2.0.1",
+    "handlebars": "^3.0.3",
+    "path": "^0.11.14",
     "request": "^2.55.0"
   },
   "devDependencies": {

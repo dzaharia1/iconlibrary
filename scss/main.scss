@@ -125,6 +125,8 @@ main{
 
 .hidden {
 	display: none;
+	max-height: 0px;
+	opacity: 0;
 }
 
 .download-link-section{
@@ -145,7 +147,7 @@ main{
 	font-size: .87rem;
 	width: 100%;
 	padding: 1rem 2rem;
-	transition: .2s background-color;
+	transition: background-color .2s;
 	@media screen and (min-width: 800px){
 		width: 48.5%;
 	}
@@ -182,6 +184,12 @@ main{
 	}
 	.sticky-heading{
 		// display: none;
+		transition: opacity .2s;
+		opacity: 0;
+
+		&--visible {
+			opacity: 1;
+		}
 		@media screen and (max-width: 750px){
 			display: none;
 		}
@@ -288,6 +296,10 @@ main{
 	background-color: $light-gray;
 	margin-bottom: 1.25rem;
 	padding: 1rem .75rem;
+	transition: background-color .2s;
+	&:hover {
+		background-color: #eee;
+	}
 }
 
 .icon-item-sample{
@@ -306,7 +318,18 @@ main{
 
 .icon-download-list{
 	@extend %verticalFlexCenter;
+	justify-content: space-around;
 	margin-top: .75rem;
+	height: 0;
+	opacity: 0;
+	transition: .2s;
+	&--visible {
+		opacity: 1;
+		height: 40px;
+	}
+
+	
+
 	li{
 		margin-bottom: .5rem;
 	}
