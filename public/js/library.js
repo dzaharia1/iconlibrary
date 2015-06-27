@@ -27,17 +27,23 @@ var queryIcons = function() {
 	}
 };
 
-var toggleElement = function(element, explicit) {
-	if (!explicit) {
-		element.classList.add('explicit');
+var toggleClass = function(element, className, explicit) {
+	if (explicit === true) {
+		element.classList.add(className);
+		return;
 	}
-	if (element.classList.contains('hidden')) {
-		element.classList.remove('hidden');
+	else if (explicit === false) {
+		element.classList.remove(className);
+		return;
+	}
+
+	if (element.classList.contains(className)) {
+		element.classList.remove(className);
 	}
 	else {
-		element.classList.add('hidden');
+		element.classList.add(className);
 	}
-};
+}
 
 var setProperty = function(element, property, value) {
 	element.style[property] = value;
@@ -90,16 +96,16 @@ var readyFunction = function() {
 		queryIcons()
 	});
 
-	Array.prototype.forEach.call(expandButtons, function(element) {
-		element.addEventListener('click', function(event) {
+	Array.prototype.forEach.call(expandButtons, function(thisButton) {
+		thisButton.addEventListener('click', function(event) {
 			event.preventDefault();
-			var downloadList = element.parentNode.querySelector('.icon-download-list');
-			if (downloadList.classList.contains('icon-download-list__visible')) {
-				downloadList.classList.remove('icon-download-list__visible');
+			var activeClassName = 'icon-download-list--visible';
+			var currentlyExpandedList = document.querySelector('.icon-download-list--visible');
+			var thisDownloadList = thisButton.parentNode.querySelector('.icon-download-list');
+			if (currentlyExpandedList && currentlyExpandedList !== thisDownloadList) {
+				toggleClass(currentlyExpandedList, activeClassName, false);
 			}
-			else {
-				downloadList.classList.add('icon-download-list__visible');
-			}
+			toggleClass(thisDownloadList, activeClassName);
 		});
 	});
 
@@ -110,20 +116,17 @@ var readyFunction = function() {
 	});
 
 	window.addEventListener('scroll', function() {
-		if (window.scrollY >= filterTop - 16) {
-			filterBar.classList.add('view-controller-fixed');
+		if (window.scrollY >= filterTop) {
+			toggleClass(filterBar, 'view-controller-fixed', true);
 			iconList.style.marginTop = filterHeight + 'px';
-			if (window.outerWidth > 750) {
-				setProperty(stickyTitle, 'opacity', '1');
-			}
+			toggleClass(stickyTitle, 'sticky-heading--visible', true);
 		}
 		else{
-			filterBar.classList.remove('view-controller-fixed');
+			toggleClass(filterBar, 'view-controller-fixed', false);
 			iconList.style.marginTop = 0 + 'px';
-			setProperty(stickyTitle, 'opacity', '0');
+			toggleClass(stickyTitle, 'sticky-heading--visible', false);
 		}
 	});
-
 };
 
 if (document.readyState != 'loading') {

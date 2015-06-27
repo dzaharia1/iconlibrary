@@ -186,6 +186,10 @@ main{
 		// display: none;
 		transition: opacity .2s;
 		opacity: 0;
+
+		&--visible {
+			opacity: 1;
+		}
 		@media screen and (max-width: 750px){
 			display: none;
 		}
@@ -319,10 +323,12 @@ main{
 	height: 0;
 	opacity: 0;
 	transition: .2s;
-	&__visible {
+	&--visible {
 		opacity: 1;
 		height: 40px;
 	}
+
+	
 
 	li{
 		margin-bottom: .5rem;
